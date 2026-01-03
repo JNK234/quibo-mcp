@@ -8,12 +8,19 @@ import type { QuiboConfig, StoredAuth } from './types.js';
  * Configuration store using conf package
  * Data stored in ~/.config/quibo-mcp/config.json
  */
+// Quibo's Supabase project credentials (public - safe to hardcode)
+const QUIBO_SUPABASE_URL = 'https://bjqnndhxnapjhlkljsdj.supabase.co';
+const QUIBO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqcW5uZGh4bmFwamhsa2xqc2RqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwMTM0MjcsImV4cCI6MjA3OTU4OTQyN30.txgB66gZhjgtCzukovalPVHPgb_DLDuFzqXtVwvIZ7w';
+
+// Production Quibo backend URL
+const QUIBO_PRODUCTION_URL = 'https://quibo-backend-870041009851.us-central1.run.app';
+
 const store = new Conf<QuiboConfig>({
   projectName: 'quibo-mcp',
   defaults: {
-    backendUrl: process.env.QUIBO_BACKEND_URL || 'http://localhost:8000',
-    supabaseUrl: process.env.SUPABASE_URL || '',
-    supabaseAnonKey: process.env.SUPABASE_ANON_KEY || '',
+    backendUrl: process.env.QUIBO_BACKEND_URL || QUIBO_PRODUCTION_URL,
+    supabaseUrl: QUIBO_SUPABASE_URL,
+    supabaseAnonKey: QUIBO_SUPABASE_ANON_KEY,
   },
 });
 
