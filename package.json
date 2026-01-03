@@ -1,0 +1,43 @@
+{
+  "name": "quibo-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Quibo AI-powered blog generation",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "quibo-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "quibo",
+    "blog",
+    "ai"
+  ],
+  "author": "Quibo",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "@supabase/supabase-js": "^2.89.0",
+    "conf": "^15.0.2",
+    "open": "^11.0.0",
+    "zod": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
